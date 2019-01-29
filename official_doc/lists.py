@@ -21,6 +21,8 @@ print(cubes)
 
 #append
 cubes.append(216)
+#insert is same as append here
+cubes.insert(len(cubes), 216)
 cubes.append(7 ** 3)
 print(cubes)
 
@@ -30,6 +32,9 @@ print(letters)
 
 letters[2:5] = ['C', 'D', 'E']
 print(letters)
+
+#pop
+print(letters.pop())
 
 #remove
 letters[2:5] = []
