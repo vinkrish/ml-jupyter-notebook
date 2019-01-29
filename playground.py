@@ -44,7 +44,7 @@ for label, x, y, z in zip(labels, x_coord, y_coord, z_coord):
     points.append("{}: {}, {}, {}".format(label, x, y, z))
 for point in points:
     print(point)
-    
+
 # zip list to dictionary
 cast_names = ["Barney", "Robin", "Ted", "Lily", "Marshall"]
 cast_heights = [72, 68, 72, 66, 76]
@@ -91,7 +91,7 @@ numbers = [
               [63, 37, 85, 46, 22],
               [51, 22, 34, 11, 18]
            ]
-           
+
 def mean(num_list):
     return sum(num_list) / len(num_list)
 
@@ -118,7 +118,7 @@ def my_enumerate(iterable, start=0):
 
 for i, lesson in my_enumerate(lessons, 1):
     print("Lesson {}: {}".format(i, lesson))
-    
+
 # generator chunker solution 1
 def chunker(iterable, size):
     chunk_size = size
@@ -130,7 +130,7 @@ def chunker(iterable, size):
 
 for chunk in chunker(range(25), 4):
     print(list(chunk))
-    
+
 # generator chunker solution 2
 def chunker(iterable, size):
     """Yield successive chunks from iterable of length size."""
@@ -139,8 +139,19 @@ def chunker(iterable, size):
 
 for chunk in chunker(range(25), 4):
     print(list(chunk))
-    
+
 # generator sequence
 sq_list = [x**2 for x in range(10)]  # this produces a list of squares
-
 sq_iterator = (x**2 for x in range(10))  # this produces an iterator of squares
+
+# file open
+with open('C:/Users/Vinay/Python Workspace/Nanodegree/README.md', 'r') as f:
+    content = f.read()
+print(content)
+
+# looping in file
+camelot_lines = []
+with open("camelot.txt") as f:
+    for line in f:
+        camelot_lines.append(line.strip())
+print(camelot_lines)
