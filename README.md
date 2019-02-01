@@ -20,3 +20,25 @@ To install all dependencies listed in requirements.txt
 - pyglet - A cross-platform application framework intended for game development.
 - Pygame - A set of Python modules designed for writing games.
 - pytz - World Timezone Definitions for Python
+
+## NumPy
+NumPy stands for Numerical Python and it's a fundamental package for scientific computing in Python. NumPy provides Python with an extensive math library capable of performing numerical computations effectively and efficiently. In the following lessons you will learn:
+- How to import NumPy
+- How to create multidimensional NumPy ndarrays using various methods
+- How to access and change elements in ndarrays
+- How to load and save ndarrays
+- How to use slicing to select or change subsets of an ndarray
+- Understand the difference between a view and a copy an of ndarray
+- How to use Boolean indexing and set operations to select or change subsets of an ndarray
+- How to sort ndarrays
+- How to perform element-wise operations on ndarrays
+- Understand how NumPy uses broadcasting to perform operations on ndarrays of different sizes.
+
+## Pandas
+One very important step in machine learning is to look at your data first and make sure it is well suited for your training algorithm by doing some basic data analysis. This is where Pandas come in. Pandas Series and DataFrames are designed for fast data analysis and manipulation, as well as being flexible and easy to use. Below are just a few features that makes Pandas an excellent package for data analysis:
+- Allows the use of labels for rows and columns
+- Can calculate rolling statistics on time series data
+- Easy handling of NaN values
+- Is able to load data of different formats into DataFrames
+- Can join and merge different datasets together
+- It integrates with NumPy and Matplotlib
