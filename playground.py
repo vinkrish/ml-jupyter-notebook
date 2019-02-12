@@ -155,3 +155,38 @@ with open("camelot.txt") as f:
     for line in f:
         camelot_lines.append(line.strip())
 print(camelot_lines)
+
+# csv
+import unicodecsv
+def read_csv(filename):
+    with open(filename, 'rb') as f:
+        reader = unicodecsv.DictReader(f)
+        return list(reader)
+
+daily_engagement = read_csv('C:/Users/Vinay/Tutorials/Udacity/Nanodegree/Machine Learning Foundation/1.Introduction to Programming/9.Numpy & Pandas Part 1/Resources/daily_engagement.csv')
+
+def get_unique_students(data):
+    unique_students = set()
+    for data_point in data:
+        unique_students.add(data_point['account_key'])
+    return unique_students
+
+unique_engagement_students = get_unique_student(daily_engagement)
+len(unique_engagement_students)
+
+# csv with Pandas
+import pandas as pd
+daily_engagement = pd.read_csv('C:/Users/Vinay/Tutorials/Udacity/Nanodegree/Machine Learning Foundation/1.Introduction to Programming/9.Numpy & Pandas Part 1/Resources/daily_engagement.csv')
+len(daily_engagement['account_key'].unique())
+
+# Filling missing values
+import pandas as pd
+
+s1 = pd.Series([1, 2, 3, 4], index=['a', 'b', 'c', 'd'])
+s2 = pd.Series([10, 20, 30, 40], index=['c', 'd', 'e', 'f'])
+
+s = s1 + s2
+print(s).dropna()
+
+s_fill = s1.sum(s2, fill_value=0)
+print(s_fill)
