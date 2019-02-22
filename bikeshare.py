@@ -18,7 +18,7 @@ def get_filters():
     print('Hello! Let\'s explore some US bikeshare data!')
     # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     while True:
-        city = input('\nWould you like to see data for chicago, new york city or washington?\n')
+        city = input('\nWould you like to see data for chicago, new york city or washington?\n').lower()
         if city in ['chicago', 'new york city', 'washington']:
             break
         else:
@@ -163,6 +163,17 @@ def user_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
+def display_data(df):
+    idx = 0
+    while True:
+        display_flag = input('\nWould you like to see raw data? Enter yes or no.\n')
+        if display_flag.lower() == 'yes':
+            df_slice = df.iloc[idx: idx+5]
+            idx += 5
+            print(df_slice)
+        else:
+            break
+
 def main():
     while True:
         city, month, day = get_filters()
@@ -172,6 +183,7 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
+        display_data(df)
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
