@@ -190,3 +190,11 @@ print(s).dropna()
 
 s_fill = s1.sum(s2, fill_value=0)
 print(s_fill)
+
+# If we want to extract column A from dataframe
+df['A']
+# more coloumns
+df[['B', 'D']]
+
+# Turn pandas DataFrames into NumPy arrays
+numpy.array(df)
