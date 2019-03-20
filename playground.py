@@ -163,7 +163,7 @@ def read_csv(filename):
         reader = unicodecsv.DictReader(f)
         return list(reader)
 
-daily_engagement = read_csv('C:/Users/Vinay/Tutorials/Udacity/Nanodegree/Machine Learning Foundation/1.Introduction to Programming/9.Numpy & Pandas Part 1/Resources/daily_engagement.csv')
+daily_engagement = read_csv('data/daily_engagement.csv')
 
 def get_unique_students(data):
     unique_students = set()
@@ -176,7 +176,7 @@ len(unique_engagement_students)
 
 # csv with Pandas
 import pandas as pd
-daily_engagement = pd.read_csv('C:/Users/Vinay/Tutorials/Udacity/Nanodegree/Machine Learning Foundation/1.Introduction to Programming/9.Numpy & Pandas Part 1/Resources/daily_engagement.csv')
+daily_engagement = pd.read_csv('data/daily_engagement.csv')
 len(daily_engagement['account_key'].unique())
 
 # Filling missing values
