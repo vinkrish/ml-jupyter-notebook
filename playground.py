@@ -198,3 +198,11 @@ df[['B', 'D']]
 
 # Turn pandas DataFrames into NumPy arrays
 numpy.array(df)
+
+# To display image
+%pylab inline
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+img=mpimg.imread('your_image.png')
+imgplot = plt.imshow(img)
+plt.show()
