@@ -65,3 +65,21 @@ One very important step in machine learning is to look at your data first and ma
 - Is able to load data of different formats into DataFrames
 - Can join and merge different datasets together
 - It integrates with NumPy and Matplotlib
+
+### NLTK
+Language processing tasks and corresponding NLTK modules with examples of functionality:
+
+| Language processing task | NLTK modules |	Functionality |
+|--------------------------|--------------|---------------|
+| Accessing corpora | corpus | standardized interfaces to corpora and lexicons |
+| String processing | tokenize, stem | tokenizers, sentence tokenizers, stemmers |
+| Collocation discovery | collocations | t-test, chi-squared, point-wise mutual information |
+| Part-of-speech tagging | tag | n-gram, backoff, Brill, HMM, TnT |
+| Machine learning | classify, cluster, tbl | decision tree, maximum entropy, naive Bayes, EM, k-means |
+| Chunking | chunk | regular expression, n-gram, named-entity |
+| Parsing |	parse, ccg | chart, feature-based, unification, probabilistic, dependency |
+| Semantic interpretation | sem, inference | lambda calculus, first-order logic, model checking |
+| Evaluation metrics | metric | precision, recall, agreement coefficients |
+| Probability and estimation | probability | frequency distributions, smoothed probability distributions |
+| Applications | app, chat | graphical concordancer, parsers, WordNet browser, chatbots |
+| Linguistic fieldwork | toolbox | manipulate data in SIL Toolbox format |
