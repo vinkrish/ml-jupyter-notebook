@@ -1,8 +1,8 @@
 # Python
 
-Run this from the folder where you have pip(C:\Users\Vinay\Anaconda3\Scripts):
+Run this from the folder where you have pip (C:\Users\Vinay\Anaconda3\Scripts):
 
-python -m pip install module
+`python -m pip install module`
 
 To install all dependencies listed in requirements.txt:
 
@@ -64,8 +64,8 @@ To install all dependencies listed in requirements.txt:
 |dict['key']|Get value of the key|
 |dict['key'] = 'updated-value'|update key value pair|
 |del dict['key']|Remove the key|
-|dict.update({'key': 'recent-value', 'another-key': 'some-value'})||
-|dict.get('key')||
+|dict.update({'key1': 'val', 'key2': 'val'})|Adds dictionary key-values pairs to dict|
+|dict.get('key')|For key key, returns value|
 |dict.get('key', 0)|default value for key|
 |dict.pop('key')|pop method removes a key and returns the value|
 |dict.keys()|returns the keys of the dictionary as a list|
