@@ -1,23 +1,45 @@
 a = [-1, 1, 66.25, 333, 333, 1234.5]
 del a[0]
 print(a)
+
 [1, 66.25, 333, 333, 1234.5]
 del a[2:4]
 print(a)
+
 [1, 66.25, 1234.5]
 del a[:]
 print(a)
-[]
+
+a = []
 del a
 
 # dictionary
 result = 0
 basket_items = {'apples': 4, 'oranges': 19, 'kites': 3, 'sandwiches': 8}
+print(basket_items['apples'])
+
+for key in basket_items:
+    print(key)
+
+for custom_name in basket_items.values():
+    print(custom_name)
+
+for key, value in basket_items.items():
+    print(key, value)
+
 fruits = ['apples', 'oranges', 'pears', 'peaches', 'grapes', 'bananas']
 for fruit, fruit_count in basket_items.items():
     if fruit in fruits:
         result += fruit_count
 print(result)
+
+# tuple
+tuple = ("apple", "banana", "cherry")
+for x in thistuple:
+    print(x)
+
+if "apple" in tuple:
+    print("Yes, 'apple' is in the fruits tuple")
 
 # loop
 headlines = ["Local Bear Eaten by Man",
@@ -72,6 +94,14 @@ print(cast)
 # list comprehension
 multiples_3 = [num*3 for num in range(1,21)]
 print(multiples_3)
+
+a = [1, 0, 0, 2, 3, 0]
+a_out = [1 if  i == 0 else i for i in a]
+print(a_out)
+
+a = [1, 0, 0, 2, 3, 0]
+a_out = all(i == 0 for i in a)
+print(a_out)
 
 # filter with list comprehension
 scores = {
@@ -203,6 +233,6 @@ numpy.array(df)
 %pylab inline
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
-img=mpimg.imread('your_image.png')
+img=mpimg.imread('ml_map.png')
 imgplot = plt.imshow(img)
 plt.show()
