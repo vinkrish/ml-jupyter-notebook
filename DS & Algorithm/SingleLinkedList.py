@@ -99,7 +99,7 @@ class SingleLinkedList:
             while p is not None:
                 print(p.info, " ", end='')
                 p = p.link
-            print()    
+            print()
 
     def count_nodes(self):
         p = self.start
