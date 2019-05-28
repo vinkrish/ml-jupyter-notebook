@@ -322,7 +322,7 @@ class SingleLinkedList:
         return merged_list
 
     def _merge_rearrange(self, p1, p2):
-        if p1.info < p2.info:
+        if p1.info <= p2.info:
             p = p1
             p1 = p1.link
         else:
@@ -369,6 +369,20 @@ class SingleLinkedList:
         start2 = p.link
         p.link = None
         return start2
+
+    def concatenate(self, list2):
+        if self.start is None:
+            self.start = list2.start
+            return
+
+        if list2.start is None:
+            return
+
+        p = self.start
+        while p.link is not None:
+            p = p.link
+
+        p.link = list2.start
 
 print('Creating list :')
 list = SingleLinkedList()
@@ -437,7 +451,9 @@ merged_list.display_list()
 print('Merge by rearranging :')
 merged_list = list.merge_rearrange(list2)
 merged_list.display_list()
+list.display_list()
 
+print('Reversed list before calling mergesort :')
 merged_list.reverse_list()
 merged_list.display_list()
 print('MergeSort :')
@@ -448,4 +464,13 @@ print('Cyles in list :')
 merged_list.insert_cycle(4)
 print(merged_list.has_cycle())
 merged_list.remove_cycle()
+print(merged_list.has_cycle())
 merged_list.display_list()
+
+print('Concatinate list :')
+list3 = SingleLinkedList()
+list3.create_list()
+list4 = SingleLinkedList()
+list4.create_list()
+list3.concatenate(list4)
+list3.display_list()

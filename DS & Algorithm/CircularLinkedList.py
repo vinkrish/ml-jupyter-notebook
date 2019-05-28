@@ -161,6 +161,19 @@ class CircularLinkedList(object):
         p.link = self.last.link
         self.last = p
 
+    def concatenate(self, list2):
+        if self.last is None:
+            self.last = list2.last
+            return
+        
+        if list2.last is None:
+            return
+
+        p = self.last.link
+        self.last.link = list2.last.link
+        list2.last.link = p
+        self.last = list2.last
+
 print('Creating list :')
 list = CircularLinkedList()
 
@@ -187,4 +200,11 @@ print('Deleting first_node, last_node, node_with_value :')
 list.delete_first_node()
 list.delete_last_node()
 list.delete_node(4.5)
+list.display_list()
+
+print('Concatenate list :')
+list2 = CircularLinkedList()
+list2.create_list()
+list2.display_list()
+list.concatenate(list2)
 list.display_list()
