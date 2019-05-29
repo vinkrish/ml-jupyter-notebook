@@ -53,6 +53,9 @@ To install all dependencies listed in requirements.txt:
 |list.extend(seq)|Appends the contents of seq to list|
 |list(seq)|converts a tuple into list|
 |len(list)|gives the total length of the list|
+|concatenation|[1, 2, 3] + [4, 5, 6] => [1,2,3,4,5,6]|
+|Membership|3 in [1,2,3] => True|
+|Slicing|list[-1]=>last element, list[1:]=>elements from index 1|
 
 ## Dictionary
 
