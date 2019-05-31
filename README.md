@@ -1,8 +1,11 @@
 # Python
 
-Run this from the folder where you have pip (C:\Users\Vinay\Anaconda3\Scripts):
+**Class Attributes** belong to the class itself they will be shared by all the instances. Such attributes are defined in the class body parts usually at the top, for legibility.
+**Instance Attributes** are not shared by objects. Every object has its own copy of the instance attribute.
 
-`python -m pip install module`
+Run this from folder where you have pip (C:\Users\Vinay\Anaconda3\Scripts):
+
+`python -m pip install package`
 
 To install all dependencies listed in requirements.txt:
 
@@ -94,6 +97,17 @@ To install all dependencies listed in requirements.txt:
 |tuple.count('value')|Returns the number of times a specified value occurs in a tuple|
 |tuple.index('value')|Searches the tuple for a specified value and returns the position of where it was found|
 |del tuple|delete the tuple completely|
+
+## Functional Programming Principles
+
+- **First Class Functions** : Passing functions as arguments to other functions, returning them as the values from other functions, and assigning them to variables or storing them in data structures.
+- **Pure Functions** : Thus a pure function is a computational analogue of a mathematical function
+    1. Its return value is the same for the same arguments (no variation with local static variables, non-local variables, mutable reference arguments or input streams from I/O devices).
+    2. Its evaluation has no side effects (no mutation of local static variables, non-local variables, mutable reference arguments or I/O streams).
+- **Lazy Evaluation** : It is an evaluation strategy which delays the evaluation of an expression until its value is needed (non-strict evaluation) and which also avoids repeated evaluations.
+- **Immutable variables & Objects**
+- **Recursion**
+- **Pattern Matching**
 
 ## Useful Third-Party Packages
 
