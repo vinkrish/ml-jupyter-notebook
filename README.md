@@ -1,6 +1,7 @@
 # Python
 
 **Class Attributes** belong to the class itself they will be shared by all the instances. Such attributes are defined in the class body parts usually at the top, for legibility.
+
 **Instance Attributes** are not shared by objects. Every object has its own copy of the instance attribute.
 
 Run this from folder where you have pip (C:\Users\Vinay\Anaconda3\Scripts):
