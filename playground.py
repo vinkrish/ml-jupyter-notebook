@@ -95,6 +95,8 @@ print(cast)
 multiples_3 = [num*3 for num in range(1,21)]
 print(multiples_3)
 
+[x*2 for x in range(9) if x%2==0]
+
 a = [1, 0, 0, 2, 3, 0]
 a_out = [1 if  i == 0 else i for i in a]
 print(a_out)
@@ -102,6 +104,13 @@ print(a_out)
 a = [1, 0, 0, 2, 3, 0]
 a_out = all(i == 0 for i in a)
 print(a_out)
+
+# map
+def addition(n):
+    return n+n
+
+numbers = [1,2,3,4]
+map(addition, numbers)
 
 # filter with list comprehension
 scores = {
