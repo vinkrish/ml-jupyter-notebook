@@ -154,7 +154,23 @@ One very important step in machine learning is to look at your data first and ma
 - Can join and merge different datasets together
 - It integrates with NumPy and Matplotlib
 
-### NLTK
+## PySpark functions
+
+- select(): returns a new dataframe with the selected columns
+- filter(): filters rows using the given condition
+- where(): is just an alias for filter()
+- groupBy(): groups the DataFrame using the specified columns, so we can run aggregation on them
+- sort(): returns a new DataFrame sorted by the specified column(s). By default the second parameter 'ascending' is True
+- dropDuplicates(): returns a new dataframe with unique rows based on all or just a subset of columns
+- withColumn(): returns a new DataFrame by adding a column or replacing the existing column that has the same name. The first parameter is the name of the new column, the second is an expression of how to compute it
+
+Spark SQL provides built-in methods for the most common aggregations such as count(), countDistinct(), avg(), max(), min(), etc. in the pyspark.sql.functions module.
+
+In Spark SQL we can define our own functions with the User defined functions (UDF) method from the pyspark.sql.functions module.
+
+Window functions are a way of combining the values of ranges of rows in a dataframe. When defining the window we can choose how to sort and group (with the partitionBy method) the rows and how wide of a window we'd like to use (described by rangeBetween or rowsBetween).
+
+## NLTK
 
 Language processing tasks and corresponding NLTK modules with examples of functionality:
 
