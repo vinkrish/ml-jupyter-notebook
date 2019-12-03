@@ -99,6 +99,66 @@ To install all dependencies listed in requirements.txt:
 |tuple.index('value')|Searches the tuple for a specified value and returns the position of where it was found|
 |del tuple|delete the tuple completely|
 
+## File Path Manipulation
+
+```
+import os.path
+
+# Get the path of current working directory
+dirpath = os.getcwd()
+foldername = os.path.basename(dirpath)
+
+# Get the path of script file
+scriptpath = os.path.realpath(__file__)
+
+# get dir part of path
+print(os.path.dirname("/home/aa/bb/ff.html"))
+# /home/aa/bb
+
+# get file name part of a path
+print(os.path.basename("/home/aa/bb/ff.html"))
+# ff.html
+
+# split path into dir part, file part
+fp = "/home/aa/bb/ff.html"
+
+print(os.path.split(fp))
+# ('/home/aa/bb', 'ff.html')
+
+# Get File Extension
+x = os.path.splitext("/home/aa/bb/ff.html")
+
+print(x)
+# ('/home/aa/bb/ff', '.html')
+
+# get file extension
+print(x[1])
+# .html
+
+# check if file exists
+print(os.path.exists("/home/"))
+# True
+
+# compute relative path
+print(os.path.relpath("/home/aa/bb/ff.html", "/home/aa/"))
+# bb/ff.html
+
+# get absolute path
+fp = "/usr/bin/../bin/vi"
+
+# remove redundant ../
+print(os.path.normpath(fp))
+# /usr/bin/vi
+
+# similar to os.path.normpath(fp) but does a bit more
+print(os.path.abspath(fp))
+# /usr/bin/vi
+
+# resolve symbolic link
+print(os.path.realpath("/usr/bin/vi"))
+# /usr/bin/vim
+```
+
 ## Functional Programming Principles
 
 - **First Class Functions** : Passing functions as arguments to other functions, returning them as the values from other functions, and assigning them to variables or storing them in data structures.
