@@ -18,6 +18,9 @@ result = 0
 basket_items = {'apples': 4, 'oranges': 19, 'kites': 3, 'sandwiches': 8}
 print(basket_items['apples'])
 
+print(list(basket_items.items())
+# [('apples', 4), ('oranges', 19), ('kites', 3), ('sandwiches', 8)]
+
 for key in basket_items:
     print(basket_items[key])
 
@@ -114,6 +117,31 @@ a = [1, 0, 0, 2, 3, 0]
 a_out = all(i == 0 for i in a)
 print(a_out)
 
+# dictionary comprehension
+
+users = [
+    (0, "user", "password"),
+    (1, "username", "1234"),
+]
+
+username_mapping = {user[1]: user for user in users}
+userid_mapping = {user[0]: user for user in users}
+
+print(username_mapping)
+
+print(username_mapping["user"])  # (0, "user", "password")
+
+# -- Collecting values --
+
+head, *tail = [1, 2, 3, 4, 5]
+print(head)  # 1
+print(tail)  # [2, 3, 4, 5]
+
+
+*head, tail = [1, 2, 3, 4, 5]
+print(head)  # [1, 2, 3, 4]
+print(tail)  # 5
+
 # map
 def addition(n):
     return n+n
@@ -131,6 +159,23 @@ scores = {
           }
 passed = [name for name, score in scores.items() if score>=65]
 print(passed)
+
+# lambda
+
+add = lambda x, y: x + y
+print(add(1,2)) # (lambda x, y: x + y)(1,2)
+
+def multiply(num):
+    return num * 3
+    
+sequence = [1,2,3]
+res = [(lambda x: x * 3)(x) for x in sequence]
+
+res = [multiply(num) for num in sequence] # use this for complicated list comprehension
+
+res = list(map(multiply, sequence))
+
+res = list(map(lambda x: x * 3, sequence))
 
 # lambda with map
 numbers = [
@@ -191,6 +236,44 @@ for chunk in chunker(range(25), 4):
 # generator sequence
 sq_list = [x**2 for x in range(10)]  # this produces a list of squares
 sq_iterator = (x**2 for x in range(10))  # this produces an iterator of squares
+
+# unpacking
+
+# The asterisk takes all the arguments and packs them into a tuple.
+def multiply(*args):
+    print(args)
+    total = 1
+    for arg in args:
+        total = total * arg
+    return total
+
+print(multiply(3, 5))
+print(multiply(-1))
+
+def add(x, y):
+    return x + y
+    
+# The asterisk can be used to unpack sequences into arguments too!
+nums = [3, 5]
+print(add(*nums))  # instead of add(nums[0], nums[1])
+
+# Double asterisk packs or unpacks keyword arguments
+def named(**kwargs):
+    print(kwargs) # {'name': 'Bob', 'age': 25}
+    
+named(name="Bob", age=25)
+# or
+details = {"name": "Bob", "age": 25}
+named(**details)
+
+def named(name, age):
+    print(name, age)
+    
+# Unpack dict into arguments. This is OK, but slightly more confusing. Good when working with variables though.
+named(**{"name": "Bob", "age": 25}) 
+# or 
+details = {"name": "Bob", "age": 25}
+named(**details)
 
 # file open
 with open('C:/Users/Vinay/Python Workspace/Nanodegree/README.md', 'r') as f:
