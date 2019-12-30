@@ -19,7 +19,7 @@ basket_items = {'apples': 4, 'oranges': 19, 'kites': 3, 'sandwiches': 8}
 print(basket_items['apples'])
 
 for key in basket_items:
-    print(key)
+    print(basket_items[key])
 
 for custom_name in basket_items.values():
     print(custom_name)
@@ -40,6 +40,15 @@ for x in thistuple:
 
 if "apple" in tuple:
     print("Yes, 'apple' is in the fruits tuple")
+    
+# set
+set = {"apple", "banana", "cherry"} or thisset = set(("apple", "banana", "cherry")) # note the double round-brackets
+for x in thisset:
+  print(x)
+  
+print("banana" in thisset)
+
+set.add("orange")
 
 # loop
 headlines = ["Local Bear Eaten by Man",

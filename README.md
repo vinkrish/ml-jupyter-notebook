@@ -99,6 +99,28 @@ To install all dependencies listed in requirements.txt:
 |tuple.index('value')|Searches the tuple for a specified value and returns the position of where it was found|
 |del tuple|delete the tuple completely|
 
+## Set
+
+### Here are some common tuple methods
+
+|Method|Description|
+|------|-----------|
+|set.add(item)|add an item to a set|
+|set.update(["orange", "mango", "grapes"])|Add multiple items to a set|
+|set.remove("banana")|raises error if item doesn't exist|
+|set.discard("banana")|will not raise an error|
+|set.clear()|empties the set|
+|del set|deletes the set completely|
+|set1.union(set2)|returns a set by joining two sets|
+|set1.update(set2)|inserts the items in set2 into set1|
+|set.copy()|returns a copy of the set|
+|set1.difference(set2)|returns a set containing the difference between two or more sets|
+|set1.difference_update(set2)|removes the items in this set that are also included in another, specified set|
+|set1.intersection(set1)|returns a set, that is the intersection of two other sets|
+|set1.intersection_update(set2)|removes the items in this set that are not present in other, specified set(s)|
+|issubset()|returns whether another set contains this set or not|
+|issuperset()|returns whether this set contains another set or not|
+
 ## File Path Manipulation
 
 ```
