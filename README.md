@@ -2,11 +2,22 @@
 
 To install package:
 
-`python -m pip install package`
+`python3 -m pip install package`
 
 To install all dependencies listed in requirements.txt:
 
-`pip install -r requirements.txt`
+`pip3 install -r requirements.txt`
+
+Virtual Environment:
+
+```python
+pip3 install virtualenv # installing
+python3 -m venv env # creating virtual python installation in the env folder
+virtualenv -p python3 env # another way to create
+source env/bin/activate # activate
+which python # confirm virtual environment
+deactivate # leave virtual environment
+```
 
 |Data Structures|Ordered|Mutable|Constructor|
 |---------------|-------|-------|-----------|
