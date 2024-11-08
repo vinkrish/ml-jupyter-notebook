@@ -45,11 +45,6 @@ print(get_admin_password())  # Error!
 
 # We want to delay overwriting until we run the function
 
-
-def get_admin_password():
-    return "1234"
-
-
 def make_secure(func):
     def secure_function():
         if user["access_level"] == "admin":
@@ -70,12 +65,7 @@ print(get_admin_password())  # Now we check access level
 
 # -- More information or error handling --
 
-
-def get_admin_password():
-    return "1234"
-
-
-def make_secure(func):
+def make_secure2(func):
     def secure_function():
         if user["access_level"] == "admin":
             return func()
@@ -85,12 +75,12 @@ def make_secure(func):
     return secure_function
 
 
-get_admin_password = make_secure(
+get_admin_password2 = make_secure2(
     get_admin_password
 )  # `get_admin_password` is now `secure_func` from above
 
 user = {"username": "jose", "access_level": "guest"}
-print(get_admin_password())  # Now we check access level
+print(get_admin_password2())  # Now we check access level
 
 user = {"username": "bob", "access_level": "admin"}
-print(get_admin_password())  # Now we check access level
+print(get_admin_password2())  # Now we check access level

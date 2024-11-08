@@ -1,8 +1,6 @@
 import functools
 
-
 user = {"username": "jose", "access_level": "guest"}
-
 
 def make_secure(func):
     @functools.wraps(func)
@@ -22,13 +20,15 @@ def get_password(panel):
     elif panel == "billing":
         return "super_secure_password"
 
+print(get_password("admin"))
+print(get_password("billing"))
 
 # print(get_password("admin"))  # Error before adding parameters, works after
 # But now we've coupled our function to our decorator. We can't decorate a different function, which isn't great!
 # Instead we could take unlimited parameters and pass whatever we get down to the original function
 
 
-def make_secure(func):
+def make_secure2(func):
     @functools.wraps(func)
     def secure_function(*args, **kwargs):
         if user["access_level"] == "admin":
@@ -39,18 +39,18 @@ def make_secure(func):
     return secure_function
 
 
-@make_secure
-def get_password(panel):
+@make_secure2
+def get_password2(panel):
     if panel == "admin":
         return "1234"
     elif panel == "billing":
         return "super_secure_password"
 
 
-print(get_password("admin"))
-print(get_password("billing"))
+print(get_password2("admin"))
+print(get_password2("billing"))
 
 user = {"username": "bob", "access_level": "admin"}
 
-print(get_password("admin"))
-print(get_password("billing"))
+print(get_password2("admin"))
+print(get_password2("billing"))
