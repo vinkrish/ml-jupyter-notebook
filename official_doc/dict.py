@@ -23,6 +23,17 @@ dict = {'key1': 'val1', 'key2': 'val2'}
 dict.update({'key3': 'val3', 'key4': 'val4'})
 print(dict)  # Output: {'key1': 'val1', 'key2': 'val2', 'key3': 'val3', 'key4': 'val4'}
 
+dict1 = {'a': 1, 'b': 2}
+dict2 = {'b': 3, 'c': 4}
+
+# Merge using the | operator
+merged_dict = dict1 | dict2
+print(merged_dict)  # Output: {'a': 1, 'b': 3, 'c': 4}
+
+# Merge using dictionary unpacking
+merged_dict = {**dict1, **dict2}
+print(merged_dict)  # Output: {'a': 1, 'b': 3, 'c': 4}
+
 # 6. Get value of key (returns None if key not present)
 print(dict.get('key1'))  # Output: 'val1'
 print(dict.get('key5'))  # Output: None
@@ -32,6 +43,7 @@ print(dict.get('key5', 0))  # Output: 0
 
 # 8. Pop method removes a key and returns the value
 value = dict.pop('key1')
+value = dict.pop('key2', '') # you can provide a default value (e.g., None) if the item is not found.
 print(value)  # Output: 'val1'
 print(dict)   # Output: {'key2': 'val2', 'key3': 'val3', 'key4': 'val4'}
 
@@ -91,3 +103,21 @@ for index, employee in enumerate(employees):
 # Using List Comprehension to Create a New List from the Dictionaries
 names = [employee["name"] for employee in employees]
 print(names)
+
+# Sorting Dictionary
+
+# Sorting the dictionary by key using dictionary comprehension
+my_dict = {'banana': 3, 'apple': 5, 'cherry': 2}
+
+print(sorted(my_dict)) # ['apple', 'banana', 'cherry']
+
+sorted_dict = {key: my_dict[key] for key in sorted(my_dict)}
+print(sorted_dict) # {'apple': 5, 'banana': 3, 'cherry': 2}
+
+# Sorting the dictionary by key in reverse (descending) order
+sorted_dict = {key: my_dict[key] for key in sorted(my_dict, reverse=True)}
+print(sorted_dict) # {'cherry': 2, 'banana': 3, 'apple': 5}
+
+# Sorting the dictionary by value in reverse (descending) order
+sorted_dict = {key: value for key, value in sorted(my_dict.items(), key=lambda item: item[1], reverse=True)}
+print(sorted_dict) # {'apple': 5, 'banana': 3, 'cherry': 2}

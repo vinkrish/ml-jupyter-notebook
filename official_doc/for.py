@@ -1,6 +1,21 @@
-words = ['cat', 'window', 'defenestrate']
+words = ['cat', 'dog', 'rabbit', 'squirrel', 'turkey', 'fox', 'birds']
 for w in words:
     print(w, len(w))
+
+for w in words[2:5]:
+    print(w, len(w))
+
+for w in words[1:]:
+    print(w, len(w))
+
+for w in words[:2]:
+    print(w, len(w))
+
+for w in words[:-2]:
+    print(w, len(w))
+
+# check value exist in a list
+print('cat' in words)
 
 #modify sequence
 for w in words[:]:
@@ -128,3 +143,8 @@ scores = {
           }
 passed = [name for name, score in scores.items() if score>=65]
 print(passed)
+
+# Average
+numbers = [10, 20, 30, 40, 50]
+average = sum(numbers) / len(numbers)
+print(average)  # Output: 30.0

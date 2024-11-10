@@ -1,8 +1,14 @@
+# if condition
 friends = ["Angel", "Everest", "Kailani", "Moda"]
 starts_a = [friend for friend in friends if friend.startswith('A')]
 print(starts_a)
 print(friends is starts_a)
 print("friends:", id(friends), "starts_a:", id(starts_a))
+
+# if-else condition
+numbers = [1, 2, 3, 4, 5]
+result = [num * 2 if num % 2 == 0 else num for num in numbers]
+print(result)  # Output: [1, 4, 3, 8, 5]
 
 matrix = [
      [1, 2, 3, 4],
@@ -33,3 +39,12 @@ transposed
 
 list(zip(*matrix))
 [(1, 5, 9), (2, 6, 10), (3, 7, 11), (4, 8, 12)]
+
+# Creating a Dictionary from a List of Tuples
+pairs = [("apple", 3), ("banana", 2), ("orange", 5)]
+dictionary = dict([(key, value) for key, value in pairs])
+print(dictionary)
+
+# Using dictionary comprehension
+dictionary = {key: value for key, value in pairs}
+print(dictionary)

@@ -1,3 +1,6 @@
+from itertools import chain
+from collections import ChainMap
+
 #extend
 list1 = [1,2,3]
 list2 = [4,5,6]
@@ -104,3 +107,26 @@ x = [a, n]
 print(x)
 print(x[0])
 print(x[0][1])
+
+# inserting list elements at some index of another list
+list1 = [1, 2, 3, 7, 8]
+list2 = ['a', 'b', 'c']
+index = 3
+
+# Create a new list using itertools.chain
+result = list(chain(list1[:index], list2, list1[index:]))
+print(result)  # Output: [1, 2, 3, 'a', 'b', 'c', 7, 8]
+
+# Merge using dict() with zip()
+keys = ['a', 'b', 'c']
+values = [1, 2, 3]
+
+merged_dict = dict(zip(keys, values))
+print(merged_dict)  # Output: {'a': 1, 'b': 2, 'c': 3}
+
+# Merge using collections.ChainMap
+dict1 = {'a': 1, 'b': 2}
+dict2 = {'b': 3, 'c': 4}
+
+merged_dict = dict(ChainMap(dict2, dict1))
+print(merged_dict)  # Output: {'b': 3, 'c': 4, 'a': 1}

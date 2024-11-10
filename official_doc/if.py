@@ -27,6 +27,11 @@ fruits = ["apple", "banana", "cherry"]
 if "orange" not in fruits:
     print("Orange is not in the list of fruits.")
 
+# if-else single line
+score = 90
+result = 'pass' if score > 80 else 'fail'
+print(result)
+
 # Using if not with Functions
 def is_even(number):
     return number % 2 == 0

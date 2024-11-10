@@ -1,3 +1,5 @@
+from itertools import chain
+
 # A tuple consists of a number of values separated by commas
 t = 12345, 54321, 'hello!'
 print(t)
@@ -35,8 +37,17 @@ print(tuple1[1:4])  # Output: (2, 3, 4)
 
 # 3. Concatenate tuples
 tuple2 = (6, 7)
-result = tuple1 + tuple2
-print(result)  # Output: (1, 2, 3, 4, 5, 6, 7)
+
+# Merging tuples using +
+merged_tuple = tuple1 + tuple2
+print(merged_tuple)  # Output: (1, 2, 3, 4, 5, 6, 7)
+
+# Merging tuples using unpacking
+merged_tuple = (*tuple1, *tuple2)
+print(merged_tuple)  # Output: (1, 2, 3, 4, 5, 6, 7)
+
+# Merging tuples using itertools.chain
+# merged_tuple = tuple(chain(tuple1, tuple2))
 
 # 4. Repeat elements in a tuple
 repeated = tuple2 * 3
@@ -82,6 +93,11 @@ print(min(tuple1))  # Output: 1
 sorted_tuple = sorted(tuple1)
 print(sorted_tuple)  # Output: [1, 2, 3, 4, 5]
 
+tuples = [(1, 2), (0, 5), (3, 1), (1, 2, 0)]
+sorted_tuples = sorted(tuples)
+
+print(sorted_tuples)  # Output: [(0, 5), (1, 2), (1, 2, 0), (3, 1)]
+
 # 15. Deleting a tuple (tuples are immutable, so you delete the whole tuple, not elements)
 del tuple1  # tuple1 is now deleted
 
@@ -100,3 +116,16 @@ for person in people:
 
 for index, (name, age, city) in enumerate(people):
     print(f"Person {index + 1}: Name: {name}, Age: {age}, City: {city}")
+
+# Sorting Dictionary
+my_dict = {'banana': 3, 'apple': 5, 'cherry': 2}
+sorted_dict = dict((key, my_dict[key]) for key in sorted(my_dict))
+print(sorted_dict) # {'apple': 5, 'banana': 3, 'cherry': 2}
+
+# Sort by value
+sorted_dict = dict(sorted(my_dict.items(), key=lambda item: item[1]))
+print(sorted_dict) # {'cherry': 2, 'banana': 3, 'apple': 5}
+
+# Get sorted items as a list of tuples
+sorted_items = sorted(my_dict.items(), key=lambda item: item[1])
+print(sorted_items) # [('cherry', 2), ('banana', 3), ('apple', 5)]
