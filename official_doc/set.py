@@ -1,3 +1,5 @@
+from itertools import chain
+
 # Initialize a set
 set1 = {"apple", "banana", "cherry"}
 
@@ -30,9 +32,21 @@ del set1
 set1 = {"apple", "banana", "cherry"}
 set2 = {"cherry", "mango", "grapes"}
 
-# 7. Union of two sets (returns a new set with all unique elements)
+# 7. Merge two sets
+merged_set = set1 | set2
+print(merged_set)
+
+# Union of two sets (returns a new set with all unique elements)
 set_union = set1.union(set2)
 print(set_union)  # Output: {'apple', 'banana', 'cherry', 'mango', 'grapes'}
+
+# Using unpacking operator
+merged_set = {*set1, *set2}
+print(merged_set) 
+
+# Using itertools.chain
+merged_set = set(chain(set1, set2))
+print(merged_set)
 
 # 8. Update set1 with elements from set2 (adds elements of set2 to set1)
 set1.update(set2)
@@ -73,3 +87,40 @@ print(set1.issubset(set2))  # Output: True
 
 # 15. issuperset (check if set2 is a superset of set1)
 print(set2.issuperset(set1))  # Output: True
+
+# 16. Creating set from list
+my_list = [1, 2, 2, 3, 4, 4, 5]
+my_set = set(my_list)
+print(my_set)  # Output: {1, 2, 3, 4, 5}
+
+my_set = {x for x in my_list}
+print(my_set)  # Output: {1, 2, 3, 4, 5}
+
+my_set = set(dict.fromkeys(my_list))
+print(my_set)  # Output: {1, 2, 3, 4, 5}
+
+my_set = {*my_list}
+print(my_set)  # Output: {1, 2, 3, 4, 5}
+
+# 17. Check if value exist in a set
+my_set = {1, 2, 3, 4, 5}
+
+if 3 in my_set:
+    print("3 is in the set!")  # Output: 3 is in the set!
+
+if 6 not in my_set:
+    print("6 is not in the set!")  # Output: 6 is not in the set!
+
+# Check if 3 is in the set using __contains__()
+if my_set.__contains__(3):
+    print("3 is in the set!")  # Output: 3 is in the set!
+
+values = [0, 3, 7]
+# Check if any value in the list is in the set
+if any(value in my_set for value in values):
+    print("At least one value is in the set!")  # Output: At least one value is in the set!
+
+values = [2, 3]
+# Check if all values in the list are in the set
+if all(value in my_set for value in values):
+    print("All values are in the set!")  # Output: All values are in the set!

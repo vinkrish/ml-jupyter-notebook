@@ -1,3 +1,7 @@
+from itertools import chain
+from functools import reduce
+import operator
+
 # if condition
 friends = ["Angel", "Everest", "Kailani", "Moda"]
 starts_a = [friend for friend in friends if friend.startswith('A')]
@@ -9,6 +13,21 @@ print("friends:", id(friends), "starts_a:", id(starts_a))
 numbers = [1, 2, 3, 4, 5]
 result = [num * 2 if num % 2 == 0 else num for num in numbers]
 print(result)  # Output: [1, 4, 3, 8, 5]
+
+# list of list 
+
+# Flatten the list using list comprehension
+list_of_lists = [[1, 2], [3, 4], [5, 6]]
+flattened_list = [item for sublist in list_of_lists for item in sublist]
+print(flattened_list)  # Output: [1, 2, 3, 4, 5, 6]
+
+# Flatten the list using itertools.chain
+flattened_list = list(chain(*list_of_lists))
+print(flattened_list)  # Output: [1, 2, 3, 4, 5, 6]
+
+# Flatten the list using reduce
+flattened_list = reduce(operator.concat, list_of_lists)
+print(flattened_list)  # Output: [1, 2, 3, 4, 5, 6]
 
 matrix = [
      [1, 2, 3, 4],

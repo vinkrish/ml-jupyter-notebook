@@ -100,6 +100,35 @@ print(letters)
 letters[:] = []
 print(letters)
 
+# Check if value exist in a list
+my_list = [1, 2, 3, 4, 5]
+
+if 3 in my_list:
+    print("3 is in the list!")  # Output: 3 is in the list!
+
+if 6 not in my_list:
+    print("6 is not in the list!")  # Output: 6 is not in the list!
+
+# Check if 3 is in the list using __contains__()
+if my_list.__contains__(3):
+    print("3 is in the list!")  # Output: 3 is in the list!
+
+values = [0, 3, 7]
+# Check if any value in the list is in my_list
+if any(value in my_list for value in values):
+    print("At least one value is in the list!")  # Output: At least one value is in the list!
+
+values = [2, 3]
+# Check if all values in the list are in my_list
+if all(value in my_list for value in values):
+    print("All values are in the list!")  # Output: All values are in the list!
+
+# Using set for Faster Lookup
+my_set = set(my_list)
+# Check if 3 is in the set (faster lookup)
+if 3 in my_set:
+    print("3 is in the list!")  # Output: 3 is in the list!
+
 #nest list
 a = ['a', 'b', 'c']
 n = [1, 2 ,3]
