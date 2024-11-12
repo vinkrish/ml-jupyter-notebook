@@ -1,6 +1,7 @@
 import aiohttp
 import asyncio
-from flask import Flask
+import httpx
+from flask import Flask, jsonify, make_response
 from flask_restful import Resource, Api
 
 """
@@ -50,26 +51,59 @@ asyncio.run(main())
 
 # 5. Example: Fetching Multiple URLs Asynchronously
 
-# the * operator is known as the "unpacking" or "splat" operator. 
-# It takes an iterable (like a list or tuple) and expands it into individual elements
+# By default, Flask is a synchronous web framework. 
+# It handles requests one at a time per worker process. 
+# Using async/await won't provide benefits unless Flask itself is running in an asynchronous context 
+# (e.g., using gevent, eventlet, or an ASGI server like uvicorn)
 
 app = Flask(__name__)
 api = Api(app)
 
+# the * operator is known as the "unpacking" or "splat" operator. 
+# It takes an iterable (like a list or tuple) and expands it into individual elements
 class AsyncClass(Resource):
-    async def fetch_url(url):
+    async def fetch_url(self, url):
         async with aiohttp.ClientSession() as session:
             async with session.get(url) as response:
                 return await response.json()
+            
+    async def fetch_url_httpx(self, url):
+        async with httpx.AsyncClient() as client:
+            response = await client.get(url)
+            return response.json()
 
-    async def main():
+    async def get(self):
         urls = ['http://example.com', 'http://example.org', 'http://example.net']
-        tasks = [fetch_url(url) for url in urls]
+        tasks = [self.fetch_url(url) for url in urls]
         results = await asyncio.gather(*tasks)
-        for result in results:
-            print(result)
+        return jsonify(results)
 
 api.add_resource(AsyncClass, "/async")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=5000)
+
+# Using httpx instead of aiohttp
+
+app = Flask(__name__)
+
+@app.route('/async-get', methods=['GET'])
+async def async_get():
+    url = "https://jsonplaceholder.typicode.com/todos/1"
+    async with httpx.AsyncClient() as client:
+        response = await client.get(url)
+        data = response.json()
+    return jsonify(data)
+
+# you can skip jsonify() if you use return data, status_code with Content-Type explicitly set
+@app.route('/skip-jsonify')
+def skip_jsonify():
+    data = {"message": "Hello, world"}
+    response = make_response(data, 200)
+    response.headers['Content-Type'] = 'application/json'
+    return response
+
+if __name__ == '__main__':
+    import uvicorn
+    uvicorn.run(app, host='0.0.0.0', port=5000)

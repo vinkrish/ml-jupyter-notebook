@@ -40,6 +40,9 @@ print(obj)  # Output: ParameterizedConstructorExample(Name: Alice, Age: 30)
 print(repr(obj))  # Output: ParameterizedConstructorExample(name='Alice', age=30)
 
 class ClassMethodConstructorExample:
+    # class attribute
+    alive = True
+
     def __init__(self, name, age):
         self.name = name
         self.age = age
@@ -49,6 +52,12 @@ class ClassMethodConstructorExample:
         # Alternative constructor that takes a single string argument
         name, age = info_str.split(", ")
         return cls(name, int(age))
+    
+    def died(self):
+        ClassMethodConstructorExample.alive = False
+
+    def instance_died(self):
+        self.alive = False # this is instance attribute, shadowing the class attribute
 
     def display_info(self):
         print(f"Name: {self.name}, Age: {self.age}")
