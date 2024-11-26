@@ -19,3 +19,14 @@ print(person_dict_new)
 
 print(type(person_json))
 print(type(person_dict_new))
+
+# Reading JSON from a File
+with open('data.json', 'r') as file:
+    data = json.load(file)
+    print(data)
+
+# Writing JSON to a File
+data = {"name": "Alice", "age": 25, "is_student": False}
+with open('data.json', 'w') as file:
+    json.dump(data, file, indent=4)
+

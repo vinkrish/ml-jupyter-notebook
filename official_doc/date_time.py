@@ -144,15 +144,6 @@ print(local_time.isoformat())  # Outputs: '2024-11-11T19:05:00+05:30' (for IST)
 utc_now = datetime.now(pytz.utc)
 print(utc_now)
 
-# Time Zone Handling with pytz
-tz = pytz.timezone('America/New_York')
-dt_with_tz = tz.localize(now)
-
-# Converting to another timezone
-dt_utc = dt_with_tz.astimezone(pytz.utc)
-print('Handling Timezones:')
-print(dt_with_tz, dt_utc)
-
 # Date Range Generation
 # date_range = pd.date_range(start="2024-01-01", end="2024-01-10")
 # print(date_range)
